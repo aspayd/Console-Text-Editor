@@ -36,17 +36,12 @@ public class TextEditor {
             try {
                 writer = new PrintWriter(textFile, "UTF-8");
                 System.out.println("Created file " + textFile.getName());
-                writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             System.out.println("The file " + textFile.getName() + " already exists");
         }
-    }
-
-    public TextEditor(String fileName) {
-        this("", fileName);
     }
 
     public void write(String text) {

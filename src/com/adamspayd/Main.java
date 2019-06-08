@@ -12,24 +12,24 @@ public class Main {
         int input;
 
         // Create the file and/or the directory
-        System.out.println("Create new directory?\n" +
-                "0 - no\n" +
-                "1 - yes");
+        System.out.println("Press\n" +
+                "0 - Use current directory\n" +
+                "1 - Create new directory");
 
         input = scanner.nextInt();
         scanner.nextLine();
-        String pathName, fileName;
+        String directoryName, fileName;
 
         if(input == 1) {
-            System.out.println("Path: ");
-            pathName = scanner.nextLine();
+            System.out.println("Directory Name: ");
+            directoryName = scanner.nextLine();
         } else {
-            pathName = "";
+            directoryName = "";
         }
 
         System.out.println("File name: ");
         fileName = scanner.nextLine();
-        editor = new TextEditor(pathName, fileName);
+        editor = new TextEditor(directoryName, fileName);
 
         boolean quit = false;
         String text = "";
@@ -46,7 +46,6 @@ public class Main {
                     quit = true;
                     break;
                 case 1:
-                    // TODO: Add write loop cycle
                     System.out.println("=========" + editor.getFileName() + "=========");
                     text = scanner.nextLine();
                     editor.write(text);
@@ -61,7 +60,6 @@ public class Main {
                     break;
                 case 4:
                     if (editor.save()) {
-                        editor.save();
                         System.out.println("Saving and closing " + editor.getFileName());
                     } else {
                         System.out.println("Error saving");
